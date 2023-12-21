@@ -9,30 +9,35 @@ import { useInView } from 'react-intersection-observer';
 
 
 const Explore = () => {
-const [searchValue, setSearchValue] = useState('');
-const {ref, inVeiw} = useInView();
+  const {ref, inView} = useInView();
+  const [searchValue, setSearchValue] = useState('');
 
-const debouncedSearch = useDebounce(searchValue, 500);
+  const debouncedSearch = useDebounce(searchValue, 500);
 
-const { data: searchedPosts, isFetching: isSearchFetching } = useSearchPosts(debouncedSearch);
-const { data: posts, fetchNextPage, hasNextPage } = useGetPosts();
-
-useEffect(() => {
-  if (inVeiw && !searchValue) fetchNextPage();
+  const { data: searchedPosts, isFetching: isSearchFetching } = useSearchPosts(debouncedSearch);
   
-}, [inVeiw, searchValue])
+  const { data: posts, fetchNextPage, hasNextPage } = useGetPosts();
+
+  useEffect(() => {
+    if (inView && !searchValue){
+      fetchNextPage();    
+    }
+    
+  }, [inView, searchValue]);
 
 
-if (!posts)
-return (
-  <div className="flex-center w-full h-full">
-    <Loader />
-  </div>
-);
+  if (!posts)
+  return (
+    <div className="flex-center w-full h-full">
+      <Loader />
+    </div>
+  );
 
-const shouldShowResults = searchValue !== '';
-const shouldShowPosts = !shouldShowResults &&
- posts?.pages.every(item=> item.documents.length === 0);
+  const shouldShowResults = searchValue !== '';
+  const shouldShowPosts = !shouldShowResults &&
+  posts?.pages.every(item=> item.documents.length === 0);
+
+  console.log(inView)
 
 
   return (

@@ -13,7 +13,9 @@ import {
   getInfinitePosts,
   getPostById,
   getRecentPosts,
+  getUserById,
   getUserPosts,
+  getUsers,
   likePost,
   savePost,
   searchPosts,
@@ -197,5 +199,18 @@ export const useSearchPosts = (searchTerm) => {
   });
 };
 
+export const useGetUsers = (limit) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_USERS],
+    queryFn: () => getUsers(limit),
+  });
+};
 
+export const useGetUserById = (userId) => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_USER_BY_ID, userId],
+    queryFn: () => getUserById(userId),
+    enabled: !!userId,
+  });
+};
 
