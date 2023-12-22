@@ -7,6 +7,7 @@ import { Button } from '../../components/ui/button';
 import Loader from '../../components/shared/Loader';
 import { formatRelativeTime } from '../../lib/utils';
 import PostStats from '../../components/shared/PostStats';
+import GridPosts from '../../components/shared/GridPosts';
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -18,6 +19,10 @@ const PostDetails = () => {
     post?.creator.$id
   );
   const { mutate: deletePost } = useDeletePost();
+
+  const relatedPosts = userPosts?.documents.filter((userPost)=>(
+    userPost.$id !== id
+  ))
 
   const handleDeletePost = () => {
     deletePost({ postId: id, imageId: post?.imageId });
@@ -127,10 +132,23 @@ const PostDetails = () => {
             <div className="w-full">
               <PostStats post={post} userId={user.id} />
             </div>
-
           </div>
         </div>
       )}
+
+      <div className="w-full max-w-5xl">
+        <hr className="border w-full border-dark-4/80" />
+
+        <h3 className="body-bold md:h3-bold w-full my-10">
+          More Related Posts
+        </h3>
+
+        {isUserPostLoading || !relatedPosts ? (
+          <Loader />
+        ) : (
+          <GridPosts posts={relatedPosts} />
+        )}
+      </div>
     </div>
   );
 };
