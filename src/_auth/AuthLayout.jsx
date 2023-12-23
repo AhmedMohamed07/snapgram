@@ -1,5 +1,6 @@
 import { Outlet, Navigate } from 'react-router-dom';
 import { useUserContext } from '../context/AuthContext';
+import logo from '../../puplic/assets/images/side-img.svg'
 
 const AuthLayout = () => {
   const {isAuthenticated} = useUserContext();
@@ -15,7 +16,7 @@ const AuthLayout = () => {
           </section>
 
           <img
-            src="/assets/images/side-img.svg"
+            src={logo}
             alt="logo"
             className="hidden xl:block object-cover bg-no-repeat h-screen w-1/2"
           />
