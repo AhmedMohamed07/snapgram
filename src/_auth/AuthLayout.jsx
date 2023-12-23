@@ -15,7 +15,7 @@ const AuthLayout = () => {
           </section>
 
           <img
-            src="../../puplic/assets/images/side-img.svg"
+            src="/puplic/assets/images/side-img.svg"
             alt="logo"
             className="hidden xl:block object-cover bg-no-repeat h-screen w-1/2"
           />
