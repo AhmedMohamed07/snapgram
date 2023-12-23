@@ -12,7 +12,7 @@ import GridPosts from '../../components/shared/GridPosts';
 import back from '../../../puplic/assets/icons/back.svg';
 import edit from '../../../puplic/assets/icons/edit.svg';
 import deletePostt from '../../../puplic/assets/icons/delete.svg';
-import placeholder from "/assets/icons/profile-placeholder.svg"
+import placeholder from "../../../puplic/assets/icons/profile-placeholder.svg"
 
 const PostDetails = () => {
   const navigate = useNavigate();

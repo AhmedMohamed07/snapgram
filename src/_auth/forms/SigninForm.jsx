@@ -27,7 +27,7 @@ const SigninForm = () => {
 
   const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
 
-  const { mutateAsync: signInAccount, isLoading: isSigningIn } =
+  const { mutateAsync: signInAccount, isPending: isSigningIn } =
     useSignInAccount();
 
   const form = useForm({
@@ -102,9 +102,9 @@ const SigninForm = () => {
             )}
           />
           <Button type="submit" className="shad-button_primary">
-            {isUserLoading ? (
+            { isSigningIn || isUserLoading ? (
               <div className="flex-center gap-2">
-                <Loader /> Loading
+                <Loader /> Loading...
               </div>
             ) : (
               'Sign in'
