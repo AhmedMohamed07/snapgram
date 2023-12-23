@@ -18,6 +18,8 @@ import Loader from '../../components/shared/Loader';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSignInAccount } from '../../lib/react-query/queriesAndMutations';
 import { useUserContext } from '../../context/AuthContext';
+import logo from '../../../puplic/assets/images/logo.svg'
+
 
 const SigninForm = () => {
   const toast = useToast();
@@ -59,7 +61,7 @@ const SigninForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-col flex-center">
-        <img src="../../../puplic/assets/images/logo.svg" alt="logo" />
+        <img src={logo} alt="logo" />
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Log in to your account

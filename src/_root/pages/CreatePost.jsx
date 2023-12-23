@@ -1,5 +1,7 @@
 import React from 'react';
 import PostForm from '../../components/forms/PostForm';
+import addPost from "../../../puplic/assets/icons/add-post.svg"
+
 
 const CreatePost = () => {
   return (
@@ -7,7 +9,7 @@ const CreatePost = () => {
       <div className="common-container">
         <div className="max-w-5xl flex-start gap-3 w-full">
           <img
-            src="../../../puplic/assets/icons/add-post.svg"
+            src={addPost}
             alt="add-post"
             width={36}
             height={36}

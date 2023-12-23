@@ -21,6 +21,8 @@ import {
   useSignInAccount,
 } from '../../lib/react-query/queriesAndMutations';
 import { useUserContext } from '../../context/AuthContext';
+import logo from '../../../puplic/assets/images/logo.svg'
+
 
 const SignupForm = () => {
   const toast = useToast();
@@ -72,7 +74,7 @@ const SignupForm = () => {
   return (
     <Form {...form}>
       <div className="sm:w-420 flex-col flex-center">
-        <img src="../../../puplic/assets/images/logo.svg" alt="logo" />
+        <img src={logo} alt="logo" />
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
           Create a new account
