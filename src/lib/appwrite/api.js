@@ -54,9 +54,20 @@ export async function signInAccount(user) {
   }
 }
 
-export async function getCurrentUser() {
+// ============================== GET ACCOUNT
+export async function getAccount() {
   try {
     const currentAccount = await account.get();
+
+    return currentAccount;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getCurrentUser() {
+  try {
+    const currentAccount = await getAccount();
 
     if (!currentAccount) throw Error;
 

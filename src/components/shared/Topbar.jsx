@@ -10,7 +10,7 @@ import placeholder from '../../../puplic/assets/icons/profile-placeholder.svg';
 
 
 const Topbar = () => {
-  const { mutate: signOut, isSuccess } = useSignOutAccount();
+  const { mutate: signOut , isSuccess } = useSignOutAccount();
   const navigate = useNavigate();
 
   const { user, setUser, setIsAuthenticated } = useUserContext();
@@ -19,13 +19,13 @@ const Topbar = () => {
     if (isSuccess) navigate(0);
   }, [isSuccess]);
 
-  const handleSignOut = async ( e ) => {
-    e.preventDefault();
-    signOut();
-    setIsAuthenticated(false);
-    setUser(INITIAL_USER);
-    navigate("/sign-in");
-  };
+  // const handleSignOut = async ( e ) => {
+  //   e.preventDefault();
+  //   signOut();
+  //   setIsAuthenticated(false);
+  //   setUser(INITIAL_USER);
+  //   navigate("/sign-in");
+  // };
 
   return (
     <section className="topbar">
@@ -43,7 +43,7 @@ const Topbar = () => {
           <Button
             className="shad-button_ghost"
             variant="ghost"
-            onClick={(e) => handleSignOut(e)}
+            onClick={() => signOut()}
           >
             <img src={logout} alt="" />
           </Button>

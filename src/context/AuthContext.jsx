@@ -65,11 +65,12 @@ const AuthProvider = ({ children }) => {
       cookieFallback === null ||
       cookieFallback === undefined
     ) {
+      console.log(isAuthenticated);
       navigate("/sign-in");
     }
 
     checkAuthUser();
-  }, []);
+  }, []);  
 
   const value = {
     user,
