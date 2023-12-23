@@ -9,6 +9,11 @@ import { formatRelativeTime } from '../../lib/utils';
 import PostStats from '../../components/shared/PostStats';
 import GridPosts from '../../components/shared/GridPosts';
 
+import back from '../../../puplic/assets/icons/back.svg';
+import edit from '../../../puplic/assets/icons/edit.svg';
+import deletePostt from '../../../puplic/assets/icons/delete.svg';
+import placeholder from "/assets/icons/profile-placeholder.svg"
+
 const PostDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -37,7 +42,7 @@ const PostDetails = () => {
           variant="ghost"
           className="shad-button_ghost">
           <img
-            src={"../../../puplic/assets/icons/back.svg"}
+            src={back}
             alt="back"
             width={24}
             height={24}
@@ -62,8 +67,7 @@ const PostDetails = () => {
                 className="flex items-center gap-3" >
                   <img
                     src={
-                      post?.creator.imageUrl ||
-                      "/assets/icons/profile-placeholder.svg"
+                      post?.creator.imageUrl || placeholder                      
                     }
                     alt="creator"
                     className="w-8 h-8 lg:w-12 lg:h-12 rounded-full"
@@ -91,7 +95,7 @@ const PostDetails = () => {
                   className={`${user.id !==post?.creator.$id && 'hidden'}`}
                 >
                   <img
-                    src={"../../../puplic/assets/icons/edit.svg"}
+                    src={edit}
                     alt="edit"
                     width={24}
                     height={24}
@@ -104,7 +108,7 @@ const PostDetails = () => {
                   onClick={handleDeletePost}
                 >
                   <img
-                    src={"../../../puplic/assets/icons/delete.svg"}
+                    src={deletePostt}
                     alt="delete"
                     width={24}
                     height={24}

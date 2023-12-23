@@ -3,6 +3,7 @@ import PostForm from '../../components/forms/PostForm';
 import { useParams } from 'react-router-dom';
 import { useGetPostById } from '../../lib/react-query/queriesAndMutations';
 import Loader from '../../components/shared/Loader';
+import edit from "../../../puplic/assets/icons/edit.svg"
 
 
 const EditPost = () => {
@@ -23,7 +24,7 @@ const EditPost = () => {
       <div className="common-container">
         <div className="max-w-5xl flex-start gap-3 w-full">
           <img
-            src="../../../puplic/assets/icons/edit.svg"
+            src={edit}
             alt="edit"
             width={36}
             height={36}

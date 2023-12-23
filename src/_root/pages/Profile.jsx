@@ -7,6 +7,10 @@ import { Button } from '../../components/ui/button';
 import GridPosts from '../../components/shared/GridPosts';
 import LikedPosts from './LikedPosts';
 
+import edit from '../../../puplic/assets/icons/edit.svg';
+import posts from '../../../puplic/assets/icons/posts.svg';
+import liked from '../../../puplic/assets/icons/like.svg';
+
 const StatBlock = ({ value, label }) => (
   <div className="flex-center gap-2">
     <p className="small-semibold lg:body-bold text-primary-500">{value}</p>
@@ -69,7 +73,7 @@ const Profile = () => {
               `}
             >
               <img 
-                src="../../../puplic/assets/icons/edit.svg"
+                src={edit}
                 alt="edit"
                 width={20}
                 height={20}
@@ -97,8 +101,8 @@ const Profile = () => {
           }`}
         >
           <img 
-            src="../../../puplic/assets/icons/posts.svg"
-            alt="liked"
+            src={posts}
+            alt="posts"
             width={20}
             height={20}
           />
@@ -112,7 +116,7 @@ const Profile = () => {
           }`}
         >
           <img 
-            src="../../../puplic/assets/icons/like.svg"
+            src={liked}
             alt="liked"
             width={20}
             height={20}

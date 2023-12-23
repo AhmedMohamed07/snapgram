@@ -3,6 +3,8 @@ import { useGetCurrentUser } from '../../lib/react-query/queriesAndMutations';
 import Loader from '../../components/shared/Loader';
 import GridPosts from '../../components/shared/GridPosts';
 
+import save from '../../../puplic/assets/icons/save.svg';
+
 const Saved = () => {
   const { data: currentUser } = useGetCurrentUser();
 
@@ -18,10 +20,10 @@ const Saved = () => {
   <div className='saved-container'>
     <div className="flex gap-2 w-full max-w-5xl">
       <img
-          src="../../../puplic/assets/icons/save.svg"
+          src={save}
           width={36}
           height={36}
-          alt="edit"
+          alt="save"
           className="invert-white"
         />
       <h2 className="h3-bold md:h2-bold text-left w-full">Saved Posts</h2>    

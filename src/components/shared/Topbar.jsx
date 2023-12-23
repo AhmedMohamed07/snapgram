@@ -1,16 +1,23 @@
 import { Button } from '../ui/button';
-import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import { signOutAccount } from '../../lib/appwrite/api';
 import { useSignOutAccount } from '../../lib/react-query/queriesAndMutations';
 import { INITIAL_USER, useUserContext } from '../../context/AuthContext';
+import { useEffect } from 'react';
+
+import logo from '../../../puplic/assets/images/logo.svg';
+import logout from '../../../puplic/assets/icons/logout.svg';
+import placeholder from '../../../puplic/assets/icons/profile-placeholder.svg';
+
 
 const Topbar = () => {
   const { mutate: signOut, isSuccess } = useSignOutAccount();
   const navigate = useNavigate();
 
-  const { user, setUser, setIsAuthenticated, isLoading } = useUserContext();
+  const { user, setUser, setIsAuthenticated } = useUserContext();
 
+  useEffect(() => {
+    if (isSuccess) navigate(0);
+  }, [isSuccess]);
 
   const handleSignOut = async ( e ) => {
     e.preventDefault();
@@ -25,7 +32,7 @@ const Topbar = () => {
       <div className="py-4 px-5 flex-between">
         <Link to="/" className="flex gap-3 items-center">
           <img
-            src="../../../puplic/assets/images/logo.svg"
+            src={logo}
             alt="logo"
             width={130}
             height={325}
@@ -38,14 +45,13 @@ const Topbar = () => {
             variant="ghost"
             onClick={(e) => handleSignOut(e)}
           >
-            <img src="../../../puplic/assets/icons/logout.svg" alt="" />
+            <img src={logout} alt="" />
           </Button>
 
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
             <img
               src={
-                user.imageUrl ||
-                '../../../puplic/assets/icons/profile-placeholder.svg'
+                user.imageUrl || placeholder
               }
               alt="profile"
               className="rounded-full h-8 w-8"

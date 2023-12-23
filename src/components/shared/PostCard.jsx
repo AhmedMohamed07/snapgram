@@ -1,8 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { formatRelativeTime } from '../../lib/utils'
-import { useUserContext } from '../../context/AuthContext'
-import PostStats from './PostStats'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { formatRelativeTime } from '../../lib/utils';
+import { useUserContext } from '../../context/AuthContext';
+import PostStats from './PostStats';
+
+import placeholder from '../../../puplic/assets/icons/profile-placeholder.svg';
+import edit from "../../../puplic/assets/icons/edit.svg";
+
 
 const PostCard = ({post}) => {
   const {user} = useUserContext();
@@ -14,7 +18,7 @@ const PostCard = ({post}) => {
             <div className="flex items-center gap-3">
                 <Link to={`profile/${post.creator.$id}`}>
                     <img 
-                     src={post?.creator?.imageUrl || '../../../puplic/assets/icons/profile-placeholder.svg'}
+                     src={ post?.creator?.imageUrl ||placeholder }
                      alt="creator"
                      className='rounded-full w-12 lg:h-12'
                     />                     
@@ -42,7 +46,7 @@ const PostCard = ({post}) => {
                 className={`${user.id !== post.creator.$id && 'hidden'}`}
             >            
                 <img 
-                    src="../../../puplic/assets/icons/edit.svg"
+                    src={edit}
                     alt="edit"
                     width={20}
                     height={20}
@@ -63,7 +67,7 @@ const PostCard = ({post}) => {
             </div>
 
             <img 
-                src={post.imageUrl || '../../../puplic/assets/icons/profile-placeholder.svg'} alt="image" 
+                src={post.imageUrl || placeholder} alt="image" 
                 className='post-card_img'
             />
         </Link>

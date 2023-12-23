@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { Button } from '@/components/ui/button';
+import upload from '../../../puplic/assets/icons/file-upload.svg'
+
 const FileUploader = ({fieldChange, mediaUrl}) => {
     const [file, setFile] = useState([])
     const [fileUrl, setFileUrl] = useState(mediaUrl)
@@ -11,6 +13,7 @@ const FileUploader = ({fieldChange, mediaUrl}) => {
         fieldChange(acceptedFiles);
         setFileUrl(URL.createObjectURL(acceptedFiles[0]));
       }, [file])
+
     const {getRootProps, getInputProps} = useDropzone({
         onDrop,
         accept: {
@@ -40,7 +43,7 @@ const FileUploader = ({fieldChange, mediaUrl}) => {
              ) : (
             <div className='file_uploader-box'>
                 <img 
-                    src="../../../puplic/assets/icons/file-upload.svg"
+                    src={upload}
                     alt="file-upload"
                     width={96}
                     height={77} 

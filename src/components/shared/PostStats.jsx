@@ -4,6 +4,12 @@ import { checkIsLiked } from '../../lib/utils';
 import { useEffect } from 'react';
 import Loader from './Loader';
 
+import liked from '../../../puplic/assets/icons/liked.svg';
+import like from '../../../puplic/assets/icons/like.svg';
+import save from '../../../puplic/assets/icons/save.svg';
+import saved from '../../../puplic/assets/icons/saved.svg';
+
+
 const PostStats = ({ post, userId}) => {
     const likesList = post.likes.map((user)=> user.$id);
 
@@ -56,7 +62,7 @@ const PostStats = ({ post, userId}) => {
         <div className="flex gap-2 mr-5">
             <img 
                 className='cursor-pointer'
-                src={checkIsLiked(likes,userId)? "../../../puplic/assets/icons/liked.svg" : "../../../puplic/assets/icons/like.svg"} 
+                src={checkIsLiked(likes,userId)? liked : like} 
                 alt="like"
                 width={20}
                 height={20}
@@ -71,7 +77,7 @@ const PostStats = ({ post, userId}) => {
             { isSaving || isDeleting ? <Loader/> :
             <img 
                 className='cursor-pointer'
-                src={isSaved? "../../../puplic/assets/icons/saved.svg" :"../../../puplic/assets/icons/save.svg"}  
+                src={isSaved? saved : save}  
                 alt="save"
                 width={20}
                 height={20}

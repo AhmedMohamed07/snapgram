@@ -6,6 +6,8 @@ import Loader from '../../components/shared/Loader';
 import GridPosts from '../../components/shared/GridPosts';
 import SearchResults from '../../components/shared/SearchResults';
 import { useInView } from 'react-intersection-observer';
+import search from '../../../puplic/assets/icons/search.svg'
+import filter from '../../../puplic/assets/icons/filter.svg'
 
 
 const Explore = () => {
@@ -47,7 +49,7 @@ const Explore = () => {
 
       <div className="flex bg-dark-4 gap-1 px-4 w-full rounded-lg">
         <img 
-          src="../../../puplic/assets/icons/search.svg" 
+          src={search} 
           alt="search"
           width={24}
           height={24} 
@@ -69,7 +71,7 @@ const Explore = () => {
       <div className="flex-center gap-3 bg-dark-3 rounded-xl px-4 py-2 cursor-pointer">
         <p className="small-medium md:base-medium text-light-2">All</p>
         <img
-          src="../../../puplic/assets/icons/filter.svg"
+          src={filter}
           width={20}
           height={20}
           alt="filter"

@@ -1,26 +1,33 @@
+import home from '../../puplic/assets/icons/home.svg'
+import wallpaper from '../../puplic/assets/icons/wallpaper.svg'
+import people from '../../puplic/assets/icons/people.svg'
+import bookmark from '../../puplic/assets/icons/bookmark.svg'
+import gallery from '../../puplic/assets/icons/gallery-add.svg'
+
+
 export const sidebarLinks = [
   {
-    imgURL: '../../puplic/assets/icons/home.svg',
+    imgURL: home,
     route: '/',
     label: 'Home',
   },
   {
-    imgURL: '../../puplic/assets/icons/wallpaper.svg',
+    imgURL: wallpaper,
     route: '/explore',
     label: 'Explore',
   },
   {
-    imgURL: '../../puplic/assets/icons/people.svg',
+    imgURL: people,
     route: '/all-users',
     label: 'People',
   },
   {
-    imgURL: '../../puplic/assets/icons/bookmark.svg',
+    imgURL: bookmark,
     route: '/saved',
     label: 'Saved',
   },
   {
-    imgURL: '../../puplic/assets/icons/gallery-add.svg',
+    imgURL: gallery,
     route: '/create-post',
     label: 'Create Post',
   },
@@ -28,22 +35,22 @@ export const sidebarLinks = [
 
 export const bottombarLinks = [
   {
-    imgURL: '../../puplic/assets/icons/home.svg',
+    imgURL: home,
     route: '/',
     label: 'Home',
   },
   {
-    imgURL: '../../puplic/assets/icons/wallpaper.svg',
+    imgURL: wallpaper,
     route: '/explore',
     label: 'Explore',
   },
   {
-    imgURL: '../../puplic/assets/icons/bookmark.svg',
+    imgURL: bookmark,
     route: '/saved',
     label: 'Saved',
   },
   {
-    imgURL: '../../puplic/assets/icons/gallery-add.svg',
+    imgURL: gallery,
     route: '/create-post',
     label: 'Create',
   },

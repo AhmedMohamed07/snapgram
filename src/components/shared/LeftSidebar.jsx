@@ -5,8 +5,14 @@ import { useSignOutAccount } from '../../lib/react-query/queriesAndMutations';
 import { sidebarLinks } from '../../constants';
 import { Button } from '../ui/button';
 
+import logo from '../../../puplic/assets/images/logo.svg'
+import placeholder from '../../../puplic/assets/icons/profile-placeholder.svg';
+import logout from '../../../puplic/assets/icons/logout.svg'
+import Loader from './Loader';
+
+
 const LeftSidebar = () => {
-  const { mutate: signOut, isSuccess } = useSignOutAccount();
+  const { mutate: signOut } = useSignOutAccount();
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -26,18 +32,23 @@ const LeftSidebar = () => {
       <div className="flex flex-col gap-11">
         <Link to="/" className="flex gap-3 items-center">
           <img
-            src="../../../puplic/assets/images/logo.svg"
+            src={logo}
             alt="logo"
             width={170}
             height={36}
           />
         </Link>
 
+        {isLoading || !user.email ? (
+          <div className="h-14">
+            <Loader />
+          </div>
+        ) : (
+        
         <Link to={`/profile/${user.id}`} className="flex gap-3 items-center">
           <img
             src={
-              user.imageUrl ||
-              '../../../puplic/assets/icons/profile-placeholder.svg'
+              user.imageUrl || placeholder
             }
             alt="profile"
             className="rounded-full h-14 w-14"
@@ -47,7 +58,8 @@ const LeftSidebar = () => {
             <p className="smaall-regular text-light-3">@${user.username}</p>
           </div>
         </Link>
-
+        )}
+        
         <ul className="flex flex-col gap-6">
           {sidebarLinks.map((link) => {
             const isActive = pathname == link.route;
@@ -84,9 +96,9 @@ const LeftSidebar = () => {
         variant="ghost"
         onClick={ e=> handleSignOut(e) }
       >
-        <img src="../../../puplic/assets/icons/logout.svg" alt="" />
+        <img src={logout} alt="logout" />
 
-        <p className="small-medium lg:base-medium">logout</p>
+        <p className="small-medium lg:base-medium">Logout</p>
       </Button>
     </nav>
   );

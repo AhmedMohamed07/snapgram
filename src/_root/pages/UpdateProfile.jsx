@@ -12,6 +12,7 @@ import { ProfileValidation } from '../../lib/validation';
 import { useGetUserById, useUpdateUser } from '../../lib/react-query/queriesAndMutations';
 import Loader from '../../components/shared/Loader';
 import ProfileUploader from '../../components/shared/ProfileUploader';
+import edit from '../../../puplic/assets/icons/edit.svg';
 
 const UpdateProfile = () => {
   const { toast } = useToast();
@@ -74,7 +75,7 @@ const UpdateProfile = () => {
     <div className="common-container">
       <div className="flex-start gap-3 justify-start w-full max-w-5xl">
         <img
-          src="../../../puplic/assets/icons/edit.svg"
+          src={edit}
           width={36}
           height={36}
           alt="edit"
@@ -104,7 +105,7 @@ const UpdateProfile = () => {
             />
 
 
-<FormField
+            <FormField
               control={form.control}
               name="name"
               render={({ field }) => (

@@ -3,6 +3,8 @@ import { useUserContext } from '../../context/AuthContext'
 import { Link } from 'react-router-dom';
 import PostStats from './PostStats';
 
+import placeholder from '../../../puplic/assets/icons/profile-placeholder.svg';
+
 const GridPosts = ({posts, showStats = true , showUser= true}) => {
   const { user } = useUserContext(); 
 
@@ -24,8 +26,7 @@ const GridPosts = ({posts, showStats = true , showUser= true}) => {
                   <div className="flex items-center justify-start gap-2 flex-1">
                       <img
                       src={
-                          post?.creator.imageUrl ||
-                          "../../../puplic/assets/icons/profile-placeholder.svg"
+                          post?.creator.imageUrl || placeholder
                       }
                       alt="creator"
                       className="w-8 h-8 rounded-full"

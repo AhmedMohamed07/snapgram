@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { Button } from '@/components/ui/button';
+
+import upload from '../../../puplic/assets/icons/file-upload.svg'
+
 const ProfileUploader = ({fieldChange, mediaUrl}) => {
     const [file, setFile] = useState([])
     const [fileUrl, setFileUrl] = useState(mediaUrl)
@@ -24,7 +26,7 @@ const ProfileUploader = ({fieldChange, mediaUrl}) => {
 
         <div className='flex-center gap-4 cursor-pointers'>
             <img 
-                src={ fileUrl || "../../../puplic/assets/icons/file-upload.svg"}
+                src={ fileUrl || upload}
                 className="h-24 w-24 rounded-full object-cover object-top"
                 alt="file-upload"
                 
